@@ -7,6 +7,7 @@ RUN additionalPackages=" \
         git \
 		wget \
 		gnupg \
+		msmtp-mta \
 		subversion \
 		mysql-client \
         openssh-client \
