@@ -1,36 +1,71 @@
-# TetraWeb PHP CI Kit with Docker
+# PHP for Docker CI
 
-[![Build Status](https://travis-ci.org/TetraWeb/docker.svg?branch=master)](https://travis-ci.org/TetraWeb/docker)
+PHP Docker images for continuous integration and running tests. These images were created for using with Gitlab CI.
+Although they can be used with any automated testing system or as standalone services.
 
-This repository contains a set of utilities for running PHP tests via [Gitlab CI](https://about.gitlab.com/gitlab-ci/).
+_This repository started as a for of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks for them for the inital templates of these containers._
 
-These tools provide:
+# Supported tags and respective `Dockerfile` links
 
-1. [Gitlab runner](https://gitlab.com/gitlab-org/gitlab-ci-multi-runner) deployment script for Ubuntu on VM or metal server. It is not recommended to install runner right on the production system.
+- [`7.0`, (*7.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.0/Dockerfile)
+- [`7.1`, (*7.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.1/Dockerfile)
+- [`7.2`, (*7.2/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.2/Dockerfile)
 
-2. Set of Docker images for PHP 5.5 - 7.1 based on official Docker PHP images with additional modules and Node.js
+Images do not have `VOLUME` directories since fresh version of sources is supposed to be downloaded into image each time before running tests
 
-The goal of these tools is to automate as much as possible of routine work related to configuring the runner so you can concentrate on writing tests for your code.
-Also these tools are trying to be resources savvy, since in most cases huge in-RAM caches are not needed for just running unit tests with some fixtures. So you can use very small VMs for running tests
+These images are built from [Docker official php images](https://registry.hub.docker.com/_/php/), and additionally include:
 
-## Contents of repository
- - [Gitlab-runner bootstrap script](https://github.com/TetraWeb/docker/tree/master/gitlab-runner-vm) for deploying gitlab-runner
- - [PHP Docker images](https://github.com/TetraWeb/docker/tree/master/php) - based on official Docker images, but include addtional modules and also obsolete versions of PHP 5.3 and PHP 5.4
- - [Example projects](https://github.com/TetraWeb/docker/tree/master/examples) - Example PHP projects
+- All extensions are compiled and ready for loading with `docker-php-ext-enable`
+- PECL extensions: redis, mongo, xdebug
+- sendmail command via msmtp, configured as relay to localhost. Check `/etc/msmtprc` to setup relay server
+- Git client from official debian repo
+- Composer
+- PHPUnit - latest stable version for php >= 5.6 and PHPUnit 4.8 for php < 5.6
+- PHP Code Sniffer - latest stable version of `phpcs` and `phpcbf` commands
+- Node.js v6 from official Node.js debian repositories
 
-## Quick start
+See below for details
 
-1. Install [Gitlab](https://about.gitlab.com/)
-1. Get a server (VM or metal) with minimal Ubuntu-14.04 installed. It will be used for the runner
-1. Login as root to a server and execute `curl -S https://raw.githubusercontent.com/TetraWeb/docker/master/gitlab-runner-vm/bootstrap.sh | bash` and answer the questions. This script will install docker, Gitlab runner, and configure runner for using these docker images.
+## Advantages of these images
 
-Runner is limited to `tetraweb/php:*` images for main container (where your repository is cloned) and any service images `*/*` (secondary containers spinned for services like mysql, redis, etc)
+ - Builds are based on the official Docker php images
+ - Automatically rebuilt when official images are updated, so this repository always contains the latest versions
 
-If you want to use the server for also running other images (`ruby` or whatever), you should add another runners to `/etc/gitlab-runner/config.toml`, and DO NOT overwrite `allowed_images = ["tetraweb/php:*"]` for this runner, since it is a potential security breach.
+## PHP modules
 
-## Requirements
- - Gitlab v`9.0` and later
- - Gitlab runner v`9.0` and later
+Some modules are enabled by default (compiled-in) and some you have to enable in your .gitlab-ci.yml `before_script` section with `docker-php-ext-enable module1 module2`
 
-## Similar projects
- - https://github.com/bobey/docker-gitlab-ci-runner (For old gitlab-ci-runner, misses PHP 5.3)
+### Compiled-in modules
+
+```
+ctype curl date dom ereg fileinfo filter hash iconv json libxml mysqlnd openssl pcre pdo pdo_sqlite phar posix readline recode reflection session simplexml spl sqlite3 standard tokenizer xml xmlreader xmlwriter zlib
+```
+
+### Available core modules
+
+```
+bcmath bz2 calendar dba enchant exif ftp gd gettext gmp imap intl ldap mbstring mcrypt mssql mysql mysqli opcache pcntl pdo pdo_dblib pdo_mysql pdo_pgsql pgsql pspell shmop snmp soap sockets sysvmsg sysvsem sysvshm tidy wddx xmlrpc xsl zip
+```
+
+### Available PECL modules
+
+```
+mongo mongodb redis xdebug
+```
+
+### Environment variables
+
+There are environment variables which can be passed to images on docker run
+
+- `WITH_XDEBUG=1` - enables xdebug extension
+- `TIMEZONE=America/New_York` - set system and `php.ini` timezone. You can also set timezone in .gitlab-ci.yml - check [Example](https://github.com/TetraWeb/docker/blob/master/examples/purephp/.gitlab-ci.yml)
+- `COMPOSER_GITHUB=<YOUR_GITHUB_TOKEN>` - Adds Github oauth token for composer which allows composer to get unlimited repositories from Github without blocking non-interactive mode with request for authorization. You can obtain your token at [https://github.com/settings/tokens](https://github.com/settings/tokens)
+
+    [Composer documentation about Github API rate limit](https://getcomposer.org/doc/articles/troubleshooting.md#api-rate-limit-and-oauth-tokens)
+
+## FAQ
+
+1. **How to set custom php.ini values**
+
+   Easiest way is to add your php.ini directives to `/usr/local/etc/php/conf.d/[anyname].ini`
+   Another way is to mount your local php.ini on container start like `docker run ... -v /home/user/php.ini:/usr/local/php/etc/php.ini ...`
