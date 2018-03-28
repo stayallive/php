@@ -7,6 +7,8 @@ RUN additionalPackages=" \
         git \
 		wget \
 		gnupg \
+		subversion \
+		mysql-client \
         openssh-client \
         rsync \
     " \
