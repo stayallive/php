@@ -2,7 +2,7 @@ pipeline:
   docker-build-70:
     group: build
     image: plugins/docker
-    dockerfile: 7.0/Dockerfile
+    context: "7.0"
     repo: stayallive/php
     secrets: [ docker_username, docker_password ]
     tags: "7.0"
@@ -12,7 +12,7 @@ pipeline:
   docker-build-71:
     group: build
     image: plugins/docker
-    dockerfile: 7.1/Dockerfile
+    context: "7.1"
     repo: stayallive/php
     secrets: [ docker_username, docker_password ]
     tags: "7.1"
@@ -22,7 +22,7 @@ pipeline:
   docker-build-72:
     group: build
     image: plugins/docker
-    dockerfile: 7.2/Dockerfile
+    context: "7.2"
     repo: stayallive/php
     secrets: [ docker_username, docker_password ]
     tags: "7.2"

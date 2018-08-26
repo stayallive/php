@@ -1,6 +1,6 @@
-FROM php:7.2
+FROM php:7.3-rc
 
-ENV XDEBUG_VERSION 2.6.0
+ENV XDEBUG_VERSION 2.7.0alpha1
 
 RUN additionalPackages=" \
         apt-transport-https \
@@ -38,6 +38,7 @@ RUN additionalPackages=" \
         libxpm-dev \
         libxslt1-dev \
         zlib1g-dev \
+		libzip-dev \
     " \
     && runDeps=" \
         libc-client2007e \
