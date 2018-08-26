@@ -43,10 +43,10 @@ RUN additionalPackages=" \
         libc-client2007e \
         libenchant1c2a \
         libfreetype6 \
-        libicu52 \
+        libicu57 \
         libjpeg62-turbo \
         libmcrypt4 \
-        libpng12-0 \
+        libpng16-16 \
         libpq5 \
         libsybdb5 \
         libtidy-dev \
