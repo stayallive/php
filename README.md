@@ -3,7 +3,7 @@
 PHP Docker images for continuous integration and running tests. These images were created for using with Gitlab CI.
 Although they can be used with any automated testing system or as standalone services.
 
-_This repository started as a for of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks for them for the inital templates of these containers._
+_This repository started as a fork of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks for them for the inital templates of these containers._
 
 # Supported tags and respective `Dockerfile` links
 
