@@ -26,7 +26,7 @@ RUN additionalPackages=" \
         libkrb5-dev \
         libldap2-dev \
         libmcrypt-dev \
-        libpng12-dev \
+        libpng-dev \
         libpq-dev \
         libpspell-dev \
         librabbitmq-dev \
@@ -94,7 +94,6 @@ RUN additionalPackages=" \
         zip \
         xdebug \
     " \
-    && echo "deb http://httpredir.debian.org/debian jessie contrib non-free" > /etc/apt/sources.list.d/additional.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends $additionalPackages $buildDeps $runDeps \
     && docker-php-source extract \
