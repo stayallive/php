@@ -94,8 +94,11 @@ RUN additionalPackages=" \
         zip \
         xdebug \
     " \
+	&& echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup \
+	&& echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache \
+	&& dpkg-reconfigure -f noninteractive tzdata \
     && apt-get update \
-    && apt-get install -y --no-install-recommends $additionalPackages $buildDeps $runDeps \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $additionalPackages $buildDeps $runDeps \
     && docker-php-source extract \
     && cd /usr/src/php/ext/ \
     && curl -L http://xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz | tar -zxf - \
@@ -148,8 +151,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && apt-get install -y nodejs build-essential yarn \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY ./shared/msmtprc /etc/
-COPY ./shared/entrypoint.sh /entrypoint.sh
+COPY ../shared/msmtprc /etc/
+COPY ../shared/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["php", "-a"]
 
