@@ -3,6 +3,7 @@ pipeline:
     group: build
     image: plugins/docker
     context: 7.0/
+    dockerfile: 7.0/Dockerfile
     repo: stayallive/php
     secrets: [ docker_username, docker_password ]
     tags: "7.0"
@@ -13,6 +14,7 @@ pipeline:
     group: build
     image: plugins/docker
     context: 7.1/
+    dockerfile: 7.1/Dockerfile
     repo: stayallive/php
     secrets: [ docker_username, docker_password ]
     tags: "7.1"
@@ -23,6 +25,7 @@ pipeline:
     group: build
     image: plugins/docker
     context: 7.2/
+    dockerfile: 7.2/Dockerfile
     repo: stayallive/php
     secrets: [ docker_username, docker_password ]
     tags: "7.2"
