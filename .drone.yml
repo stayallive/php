@@ -1,0 +1,9 @@
+pipeline:
+  docker-build-70:
+    image: plugins/docker
+	dockerfile: 7.0/Dockerfile
+    repo: stayallive/php
+	secrets: [ docker_username, docker_password ]
+    tags: 7.0
+    event: push
+    branch: master
