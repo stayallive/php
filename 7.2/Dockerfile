@@ -5,13 +5,14 @@ ENV XDEBUG_VERSION 2.6.0
 RUN additionalPackages=" \
         apt-transport-https \
         git \
-		wget \
-		gnupg \
-		msmtp-mta \
-		subversion \
-		mysql-client \
+        wget \
+        gnupg \
+        msmtp-mta \
+        subversion \
+        mysql-client \
         openssh-client \
         rsync \
+        unzip \
     " \
     buildDeps=" \
         freetds-dev \
@@ -149,3 +150,4 @@ COPY msmtprc /etc/
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["php", "-a"]
+
