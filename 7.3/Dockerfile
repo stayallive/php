@@ -1,6 +1,6 @@
-FROM php:7.3-rc
+FROM php:7.3
 
-ENV XDEBUG_VERSION 2.7.0alpha1
+ENV XDEBUG_VERSION 2.7.0beta1
 
 RUN additionalPackages=" \
         apt-transport-https \
@@ -109,7 +109,7 @@ RUN additionalPackages=" \
     && docker-php-ext-configure imap --with-imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-configure ldap --with-ldap-sasl \
     && docker-php-ext-install $phpModules \
-    && printf "\n" | pecl install amqp \
+#    && printf "\n" | pecl install amqp \
     && pecl install igbinary \
     && pecl install mongodb \
     && pecl install redis \

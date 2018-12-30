@@ -9,7 +9,7 @@ pipeline:
     tags: "7.0"
     event: push
     branch: master
-    
+
   docker-build-71:
     group: build
     image: plugins/docker
@@ -20,7 +20,7 @@ pipeline:
     tags: "7.1"
     event: push
     branch: master
-    
+
   docker-build-72:
     group: build
     image: plugins/docker
@@ -29,5 +29,16 @@ pipeline:
     repo: stayallive/php
     secrets: [ docker_username, docker_password ]
     tags: "7.2"
+    event: push
+    branch: master
+
+  docker-build-73:
+    group: build
+    image: plugins/docker
+    context: 7.3/
+    dockerfile: 7.3/Dockerfile
+    repo: stayallive/php
+    secrets: [ docker_username, docker_password ]
+    tags: "7.3"
     event: push
     branch: master
