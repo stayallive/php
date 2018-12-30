@@ -52,6 +52,7 @@ RUN additionalPackages=" \
         libx11-dev \
         libxpm4 \
         libxslt1.1 \
+        libzip4 \
         snmp \
     " \
     && phpModules=" \
