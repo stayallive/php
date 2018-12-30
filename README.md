@@ -10,6 +10,7 @@ _This repository started as a fork of [TetraWeb/docker](https://github.com/Tetra
 - [`7.0`, (*7.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.0/Dockerfile)
 - [`7.1`, (*7.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.1/Dockerfile)
 - [`7.2`, (*7.2/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.2/Dockerfile)
+- [`7.3`, (*7.3/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.3/Dockerfile)
 
 Images do not have `VOLUME` directories since fresh version of sources is supposed to be downloaded into image each time before running tests
 
