@@ -1,12 +1,6 @@
 #!/bin/bash
 set -e
 
-# https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
-export COMPOSER_ALLOW_SUPERUSER=1
-
-# https://getcomposer.org/doc/03-cli.md#composer-no-interaction
-export COMPOSER_NO_INTERACTION=1
-
 # With env variable WITH_XDEBUG=1 xdebug extension will be enabled
 [ ! -z "$WITH_XDEBUG" ] && docker-php-ext-enable xdebug
 

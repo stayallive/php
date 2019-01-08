@@ -2,6 +2,11 @@ FROM php:7.3
 
 ENV XDEBUG_VERSION 2.7.0beta1
 
+# https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
+ENV COMPOSER_ALLOW_SUPERUSER=1
+# https://getcomposer.org/doc/03-cli.md#composer-no-interaction
+ENV COMPOSER_NO_INTERACTION=1
+
 RUN additionalPackages=" \
         apt-transport-https \
         git \
