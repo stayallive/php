@@ -13,6 +13,7 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
+    depends_on: [clone]
 
   - name: docker-build-71
     image: plugins/docker
@@ -25,6 +26,7 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
+    depends_on: [clone]
 
   - name: docker-build-72
     image: plugins/docker
@@ -37,6 +39,7 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
+    depends_on: [clone]
 
   - name: docker-build-73
     image: plugins/docker
@@ -49,6 +52,7 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
+    depends_on: [clone]
 
 trigger:
   event:
