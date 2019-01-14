@@ -6,7 +6,7 @@ steps:
     image: plugins/docker
     settings:
       repo: stayallive/php
-      tags: 7.0
+      tags: "7.0"
       context: 7.0/
       dockerfile: 7.0/Dockerfile
       username:
@@ -18,7 +18,7 @@ steps:
     image: plugins/docker
     settings:
       repo: stayallive/php
-      tags: 7.1
+      tags: "7.1"
       context: 7.1/
       dockerfile: 7.1/Dockerfile
       username:
@@ -30,7 +30,7 @@ steps:
     image: plugins/docker
     settings:
       repo: stayallive/php
-      tags: 7.2
+      tags: "7.2"
       context: 7.2/
       dockerfile: 7.2/Dockerfile
       username:
@@ -42,7 +42,7 @@ steps:
     image: plugins/docker
     settings:
       repo: stayallive/php
-      tags: 7.3
+      tags: "7.3"
       context: 7.3/
       dockerfile: 7.3/Dockerfile
       username:
