@@ -1,44 +1,57 @@
-pipeline:
-  docker-build-70:
-    group: build
-    image: plugins/docker
-    context: 7.0/
-    dockerfile: 7.0/Dockerfile
-    repo: stayallive/php
-    secrets: [ docker_username, docker_password ]
-    tags: "7.0"
-    event: push
-    branch: master
+kind: pipeline
+name: default
 
-  docker-build-71:
-    group: build
+steps:
+  - name: docker-build-70
     image: plugins/docker
-    context: 7.1/
-    dockerfile: 7.1/Dockerfile
-    repo: stayallive/php
-    secrets: [ docker_username, docker_password ]
-    tags: "7.1"
-    event: push
-    branch: master
+    settings:
+      repo: stayallive/php
+      tags: 7.0
+      context: 7.0/
+      dockerfile: 7.0/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
 
-  docker-build-72:
-    group: build
+  - name: docker-build-71
     image: plugins/docker
-    context: 7.2/
-    dockerfile: 7.2/Dockerfile
-    repo: stayallive/php
-    secrets: [ docker_username, docker_password ]
-    tags: "7.2"
-    event: push
-    branch: master
+    settings:
+      repo: stayallive/php
+      tags: 7.1
+      context: 7.1/
+      dockerfile: 7.1/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
 
-  docker-build-73:
-    group: build
+  - name: docker-build-72
     image: plugins/docker
-    context: 7.3/
-    dockerfile: 7.3/Dockerfile
-    repo: stayallive/php
-    secrets: [ docker_username, docker_password ]
-    tags: "7.3"
-    event: push
-    branch: master
+    settings:
+      repo: stayallive/php
+      tags: 7.2
+      context: 7.2/
+      dockerfile: 7.2/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+
+  - name: docker-build-73
+    image: plugins/docker
+    settings:
+      repo: stayallive/php
+      tags: 7.3
+      context: 7.3/
+      dockerfile: 7.3/Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+
+trigger:
+  event:
+    - push
+  branch:
+    - master
