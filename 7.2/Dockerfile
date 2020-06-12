@@ -1,6 +1,6 @@
 FROM php:7.2
 
-ENV XDEBUG_VERSION 2.6.0
+ENV XDEBUG_VERSION 2.9.6
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -14,7 +14,7 @@ RUN additionalPackages=" \
         gnupg \
         msmtp-mta \
         subversion \
-        mysql-client \
+        mariadb-client \
         openssh-client \
         rsync \
         unzip \
@@ -34,6 +34,7 @@ RUN additionalPackages=" \
         libpng-dev \
         libpq-dev \
         libpspell-dev \
+        libonig-dev \
         librabbitmq-dev \
         libsasl2-dev \
         libsnmp-dev \
@@ -43,6 +44,7 @@ RUN additionalPackages=" \
         libxpm-dev \
         libxslt1-dev \
         zlib1g-dev \
+        libzip-dev \
     " \
     && runDeps=" \
         libc-client2007e \
