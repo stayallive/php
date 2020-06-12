@@ -1,6 +1,6 @@
 FROM php:7.3
 
-ENV XDEBUG_VERSION 2.7.0beta1
+ENV XDEBUG_VERSION 2.9.6
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -14,7 +14,7 @@ RUN additionalPackages=" \
         gnupg \
         msmtp-mta \
         subversion \
-        mysql-client \
+        mariadb-client \
         openssh-client \
         rsync \
         unzip \
@@ -34,6 +34,7 @@ RUN additionalPackages=" \
         libpng-dev \
         libpq-dev \
         libpspell-dev \
+        libonig-dev \
         librabbitmq-dev \
         libsasl2-dev \
         libsnmp-dev \
@@ -43,7 +44,7 @@ RUN additionalPackages=" \
         libxpm-dev \
         libxslt1-dev \
         zlib1g-dev \
-		libzip-dev \
+        libzip-dev \
     " \
     && runDeps=" \
         libc-client2007e \
@@ -98,8 +99,8 @@ RUN additionalPackages=" \
         zip \
         xdebug \
     " \
-	&& echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup \
-	&& echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache \
+    && echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup \
+    && echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache \
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $additionalPackages $buildDeps $runDeps \
     && docker-php-source extract \
