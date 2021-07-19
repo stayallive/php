@@ -115,7 +115,6 @@ RUN additionalPackages=" \
     && docker-php-ext-configure imap --with-imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-configure ldap --with-ldap-sasl \
     && docker-php-ext-install $phpModules \
-#    && printf "\n" | pecl install amqp \
     && pecl install igbinary \
     && pecl install mongodb \
     && pecl install redis \
