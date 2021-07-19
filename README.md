@@ -7,11 +7,11 @@ _This repository started as a fork of [TetraWeb/docker](https://github.com/Tetra
 
 # Supported tags and respective `Dockerfile` links
 
-- [`7.0`, (*7.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.0/Dockerfile)
-- [`7.1`, (*7.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.1/Dockerfile)
-- [`7.2`, (*7.2/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.2/Dockerfile)
-- [`7.3`, (*7.3/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.3/Dockerfile)
-- [`7.4`, (*7.4/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/php/7.4/Dockerfile)
+- [`7.0`, (*7.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.0/Dockerfile)
+- [`7.1`, (*7.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.1/Dockerfile)
+- [`7.2`, (*7.2/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.2/Dockerfile)
+- [`7.3`, (*7.3/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.3/Dockerfile)
+- [`7.4`, (*7.4/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.4/Dockerfile)
 
 Images do not have `VOLUME` directories since fresh version of sources is supposed to be downloaded into image each time before running tests
 
@@ -63,7 +63,7 @@ There are environment variables which can be passed to images on docker run
 - `TIMEZONE=America/New_York` - set system and `php.ini` timezone. You can also set timezone in .gitlab-ci.yml - check [Example](https://github.com/TetraWeb/docker/blob/master/examples/purephp/.gitlab-ci.yml)
 - `COMPOSER_GITHUB=<YOUR_GITHUB_TOKEN>` - Adds Github oauth token for composer which allows composer to get unlimited repositories from Github without blocking non-interactive mode with request for authorization. You can obtain your token at [https://github.com/settings/tokens](https://github.com/settings/tokens)
 
-    [Composer documentation about Github API rate limit](https://getcomposer.org/doc/articles/troubleshooting.md#api-rate-limit-and-oauth-tokens)
+    [Composer documentation about GitHub API rate limit](https://getcomposer.org/doc/articles/troubleshooting.md#api-rate-limit-and-oauth-tokens)
 
 ## FAQ
 
