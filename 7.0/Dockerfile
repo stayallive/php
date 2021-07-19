@@ -118,7 +118,6 @@ RUN additionalPackages=" \
     && docker-php-ext-configure ldap --with-ldap-sasl \
     && docker-php-ext-install $phpModules \
     && pecl install igbinary \
-    && pecl install mongodb \
     && pecl install redis \
     && for ext in $phpModules; do \
            rm -f /usr/local/etc/php/conf.d/docker-php-ext-$ext.ini; \
