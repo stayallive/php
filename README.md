@@ -23,9 +23,9 @@ These images are built from [Docker official php images](https://registry.hub.do
 - sendmail command via msmtp, configured as relay to localhost. Check `/etc/msmtprc` to setup relay server
 - Git client from official debian repo
 - Composer
-- PHPUnit - latest stable version for php >= 5.6 and PHPUnit 4.8 for php < 5.6
+- PHPUnit - latest stable version for PHP >= 7.0
 - PHP Code Sniffer - latest stable version of `phpcs` and `phpcbf` commands
-- Node.js v6 from official Node.js debian repositories
+- Node.js v12 from official Node.js debian repositories
 
 See below for details
 
