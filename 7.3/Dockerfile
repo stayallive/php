@@ -23,6 +23,7 @@ RUN additionalPackages=" \
         freetds-dev \
         libbz2-dev \
         libc-client-dev \
+        libffi-dev \
         libfreetype6-dev \
         libgmp3-dev \
         libicu-dev \
