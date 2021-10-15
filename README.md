@@ -1,3 +1,7 @@
+# SwiftOtter Notes:
+* To get this to work on AMD archiecture, I removed the `pdo_pgsql` and `pdo_dblib` and `pgsql` PHP modules.
+* I rebuilt with `docker build --pull --no-cache --tag swiftotter:7.4 .`
+
 # PHP for Docker CI
 
 PHP Docker images for continuous integration and running tests. These images were created for using with Gitlab CI.

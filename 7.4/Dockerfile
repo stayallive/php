@@ -21,6 +21,7 @@ RUN additionalPackages=" \
     " \
     buildDeps=" \
         freetds-dev \
+        freetds-bin \
         libbz2-dev \
         libc-client-dev \
         libffi-dev \
@@ -78,10 +79,10 @@ RUN additionalPackages=" \
         opcache \
         pcntl \
         pdo \
-        pdo_dblib \
+#        pdo_dblib \
         pdo_mysql \
-        pdo_pgsql \
-        pgsql \
+#        pdo_pgsql \
+#        pgsql \
         pspell \
         shmop \
         snmp \
@@ -104,11 +105,12 @@ RUN additionalPackages=" \
     && cd /usr/src/php/ext/ \
     && curl -L http://xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz | tar -zxf - \
     && mv xdebug-$XDEBUG_VERSION xdebug \
+    && ls -alh /usr/lib/*linux* \
     && ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap_r.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap_r.a /usr/lib/libldap_r.a \
-    && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.a /usr/lib/libsybdb.a \
-    && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.so /usr/lib/libsybdb.so \
+#    && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.a /usr/lib/libsybdb.a \
+#    && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.so /usr/lib/libsybdb.so \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-configure imap --with-imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-configure ldap --with-ldap-sasl \
