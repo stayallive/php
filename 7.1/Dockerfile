@@ -29,6 +29,7 @@ RUN additionalPackages=" \
         libjpeg62-turbo-dev \
         libkrb5-dev \
         libldap2-dev \
+        libmagickwand-dev \
         libmcrypt-dev \
         libpng-dev \
         libpq-dev \
@@ -46,6 +47,7 @@ RUN additionalPackages=" \
         libzip-dev \
     " \
     && runDeps=" \
+        imagemagick \
         libc-client2007e \
         libfreetype6 \
         libicu63 \
@@ -99,8 +101,14 @@ RUN additionalPackages=" \
         zip \
         xdebug \
     " \
-	&& echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup \
-	&& echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache \
+    && peclModules=" \
+        igbinary \
+        imagick \
+        mongodb \
+        redis \
+    " \
+    && echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup \
+    && echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache \
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $additionalPackages $buildDeps $runDeps \
     && docker-php-source extract \
@@ -116,12 +124,10 @@ RUN additionalPackages=" \
     && docker-php-ext-configure imap --with-imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-configure ldap --with-ldap-sasl \
     && docker-php-ext-install $phpModules \
-    && pecl install igbinary \
-    && pecl install mongodb \
-    && pecl install redis \
     && for ext in $phpModules; do \
            rm -f /usr/local/etc/php/conf.d/docker-php-ext-$ext.ini; \
        done \
+    && pecl install $peclModules \
     && docker-php-source delete \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false $buildDeps \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

@@ -118,7 +118,8 @@ before_script:
 <details>
 <summary>Available PECL extensions</summary>
 
-- mongo
+- igbinary 
+- imagick
 - mongodb
 - redis
 - xdebug
