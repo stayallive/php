@@ -104,6 +104,7 @@ RUN additionalPackages=" \
         imagick \
         redis \
     " \
+    && sed -i '/^mozilla\/DST_Root_CA_X3.crt$/ s/^/!/' /etc/ca-certificates.conf && update-ca-certificates \
     && echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup \
     && echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache \
     && apt-get update \
