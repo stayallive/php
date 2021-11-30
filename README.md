@@ -2,20 +2,6 @@
 
 PHP Docker images for continuous integration and running tests. These images were created for using with Gitlab CI but should work on other platforms too.
 
-_This repository started as a fork of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks to them for the inital work._
-
-## Supported PHP versions
-
-- [`8.1` (*8.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1/Dockerfile)
-- [`8.0` (*8.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.0/Dockerfile)
-- [`7.4` (*7.4/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.4/Dockerfile)
-- [`7.3` (*7.3/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.3/Dockerfile)
-- [`7.2` (*7.2/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.2/Dockerfile)
-- [`7.1` (*7.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.1/Dockerfile)
-- [`7.0` (*7.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.0/Dockerfile)
-
-Keep in mind that although there is a image for the version that doesn't mean it's supported by PHP, see [supported PHP versions](https://www.php.net/supported-versions.php) for more information.
-
 These images are built from [official PHP Docker images](https://registry.hub.docker.com/_/php/), and additionally include:
 
 - Most extensions are compiled and ready for loading with `docker-php-ext-enable`
@@ -23,6 +9,22 @@ These images are built from [official PHP Docker images](https://registry.hub.do
 - Latest binaries of Composer, PHPUnit and PHP Code Sniffer (`phpcs` and `phpcbf`)
 - Node.js v12 from official Node.js debian repositories
 - sendmail command via msmtp, configured as relay to localhost. Check `/etc/msmtprc` to setup relay server
+
+_This repository started as a fork of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks to them for the inital work._
+
+## Supported PHP versions
+
+Images are hosted on [Docker Hub](https://hub.docker.com/r/stayallive/php) as `stayallive/php` and tagged by PHP version.
+
+- [`stayallive/php:8.1` (*8.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1/Dockerfile)
+- [`stayallive/php:8.0` (*8.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.0/Dockerfile)
+- [`stayallive/php:7.4` (*7.4/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.4/Dockerfile)
+- [`stayallive/php:7.3` (*7.3/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.3/Dockerfile)
+- [`stayallive/php:7.2` (*7.2/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.2/Dockerfile)
+- [`stayallive/php:7.1` (*7.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.1/Dockerfile)
+- [`stayallive/php:7.0` (*7.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.0/Dockerfile)
+
+Keep in mind that although there is a image for the version that doesn't mean it's supported by PHP, see [supported PHP versions](https://www.php.net/supported-versions.php) for more information.
 
 ## Available extensions
 
