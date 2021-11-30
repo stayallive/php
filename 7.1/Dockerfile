@@ -158,4 +158,3 @@ COPY msmtprc /etc/
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["php", "-a"]
-
