@@ -4,13 +4,13 @@ PHP Docker images for continuous integration and running tests. These images wer
 
 These images are built from [official PHP Docker images](https://registry.hub.docker.com/_/php/), and additionally include:
 
-- Most extensions are compiled and ready for loading with `docker-php-ext-enable`
+- [Most extensions](#available-extensions) are compiled and ready for loading with `docker-php-ext-enable`
 - Git client from official debian repo
 - Latest binaries of Composer, PHPUnit and PHP Code Sniffer (`phpcs` and `phpcbf`)
 - Node.js v12 from official Node.js debian repositories
 - sendmail command via msmtp, configured as relay to localhost. Check `/etc/msmtprc` to setup relay server
 
-_This repository started as a fork of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks to them for the inital work._
+_This repository started as a fork of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks to them for the initial work._
 
 ## Supported PHP versions
 
@@ -28,22 +28,23 @@ Keep in mind that although there is a image for the version that doesn't mean it
 
 ## Available extensions
 
-Some extensions are enabled by default (compiled-in) and some you have to enable in your `.gitlab-ci.yml` `before_script` section with `docker-php-ext-enable module1 module2`
+Some extensions are enabled by default (compiled-in) and some you have to enable when needed.
 
 <details>
-<summary>Compiled-in extensions</summary>
+<summary>List of compiled-in extensions (enabled by default)</summary>
 
 - ctype
 - curl
 - date
 - dom
-- ereg
 - fileinfo
 - filter
+- ftp
 - hash
 - iconv
 - json
 - libxml
+- mbstring
 - mysqlnd
 - openssl
 - pcre
@@ -52,10 +53,10 @@ Some extensions are enabled by default (compiled-in) and some you have to enable
 - phar
 - posix
 - readline
-- recode
 - reflection
 - session
 - simplexml
+- sodium
 - spl
 - sqlite3
 - standard
@@ -67,6 +68,15 @@ Some extensions are enabled by default (compiled-in) and some you have to enable
 
 </details>
 
+Enable the extensions below by calling `docker-php-ext-enable` in for example your `.gitlab-ci.yml` `before_script` section:
+
+```yaml
+before_script:
+  # We enable bcmath, gd and intl here for example but you
+  # can enable any extension or PECL extension listed below
+  - docker-php-ext-enable bcmath gd intl
+```
+
 <details>
 <summary>Available extensions</summary>
 
@@ -75,6 +85,7 @@ Some extensions are enabled by default (compiled-in) and some you have to enable
 - calendar
 - dba
 - exif
+- ffi
 - ftp
 - gd
 - gettext
@@ -82,10 +93,6 @@ Some extensions are enabled by default (compiled-in) and some you have to enable
 - imap
 - intl
 - ldap
-- mbstring
-- mcrypt
-- mssql
-- mysql
 - mysqli
 - opcache
 - pcntl
@@ -103,8 +110,6 @@ Some extensions are enabled by default (compiled-in) and some you have to enable
 - sysvsem
 - sysvshm
 - tidy
-- wddx
-- xmlrpc
 - xsl
 - zip
 
