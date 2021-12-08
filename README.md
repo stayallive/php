@@ -16,13 +16,13 @@ _This repository started as a fork of [TetraWeb/docker](https://github.com/Tetra
 
 Images are hosted on [Docker Hub](https://hub.docker.com/r/stayallive/php) as `stayallive/php` and tagged by PHP version.
 
-- [`stayallive/php:8.1` (*8.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1/Dockerfile)
-- [`stayallive/php:8.0` (*8.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.0/Dockerfile)
-- [`stayallive/php:7.4` (*7.4/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.4/Dockerfile)
-- [`stayallive/php:7.3` (*7.3/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.3/Dockerfile)
-- [`stayallive/php:7.2` (*7.2/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.2/Dockerfile)
-- [`stayallive/php:7.1` (*7.1/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.1/Dockerfile)
-- [`stayallive/php:7.0` (*7.0/Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.0/Dockerfile)
+- [`stayallive/php:8.1` (*81.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/81.Dockerfile)
+- [`stayallive/php:8.0` (*80.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/80.Dockerfile)
+- [`stayallive/php:7.4` (*74.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/74.Dockerfile)
+- [`stayallive/php:7.3` (*73.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/73.Dockerfile)
+- [`stayallive/php:7.2` (*72.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/72.Dockerfile)
+- [`stayallive/php:7.1` (*71.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/71.Dockerfile)
+- [`stayallive/php:7.0` (*70.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/70.Dockerfile)
 
 Keep in mind that although there is a image for the version that doesn't mean it's supported by PHP, see [supported PHP versions](https://www.php.net/supported-versions.php) for more information.
 

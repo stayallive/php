@@ -13,11 +13,11 @@ then
 fi
 
 #
-# If $TIMEZONE variable is passed to the image - it will set system timezone 
+# If $TIMEZONE variable is passed to the image - it will set system timezone
 # and php.ini date.timezone value as well
 # Overwise the default system Etc/UTC timezone will be used
 #
-# Also you can set the php timezone with direct setting it in php.ini 
+# Also you can set the php timezone with direct setting it in php.ini
 # within your .gitlab-ci.yml like
 # before_script:
 # - echo "America/New_York" > /usr/local/etc/php/conf.d/timezone.ini
