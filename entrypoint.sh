@@ -5,7 +5,7 @@ set -e
 
 # Default to use UTC as timezone
 if [[ -z "$TIMEZONE" ]]; then
-  $TIMEZONE="UTC"
+  TIMEZONE="UTC"
 else
   echo "$TIMEZONE" >/etc/timezone
   dpkg-reconfigure -f noninteractive tzdata
