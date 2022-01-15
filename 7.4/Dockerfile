@@ -1,6 +1,12 @@
 FROM php:7.4
 
+# Workaround for PhantomJS
+ENV QT_QPA_PLATFORM offscreen
+
 ENV XDEBUG_VERSION 2.9.8
+
+ARG NODE_VERSION=14
+ARG INSTALL_PHANTOM=0
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -79,10 +85,7 @@ RUN additionalPackages=" \
         opcache \
         pcntl \
         pdo \
-#        pdo_dblib \
         pdo_mysql \
-#        pdo_pgsql \
-#        pgsql \
         pspell \
         shmop \
         snmp \
@@ -109,12 +112,11 @@ RUN additionalPackages=" \
     && ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap_r.so /usr/lib/libldap.so \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap_r.a /usr/lib/libldap_r.a \
-#    && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.a /usr/lib/libsybdb.a \
-#    && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.so /usr/lib/libsybdb.so \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-configure imap --with-imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-configure ldap --with-ldap-sasl \
     && docker-php-ext-install $phpModules \
+    && docker-php-ext-enable pdo_mysql bcmath calendar gd intl pcntl soap sockets xmlrpc zip xsl mongodb \
     && pecl install igbinary \
     && pecl install mongodb \
     && pecl install redis \
@@ -149,9 +151,15 @@ RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar \
 # Install Node.js & Yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
     && apt-get install -y nodejs build-essential yarn \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN if [[ "${INSTALL_PHANTOM}" -gt 0 ]]; then \
+    apt update && apt install python2 libqt5core5a libqt5gui5 libqt5network5 libqt5printsupport5 libqt5webkit5 libqt5widgets5 xvfb libxcb-util1 -y \
+              wget http://ports.ubuntu.com/pool/universe/p/phantomjs/phantomjs_2.1.1+dfsg-2_arm64.deb -O phantom-2.1.1.deb \
+              dpkg -i phantom-2.1.1.deb \
+    fi
 
 COPY msmtprc /etc/
 COPY entrypoint.sh /entrypoint.sh

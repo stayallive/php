@@ -1,6 +1,9 @@
 # SwiftOtter Notes:
 * To get this to work on AMD archiecture, I removed the `pdo_pgsql` and `pdo_dblib` and `pgsql` PHP modules.
 * I rebuilt with `docker build --pull --no-cache --tag swiftotter:7.4 .`
+* ARM-compatible Phantom library is installable when `INSTALL_PHANTOM` argument equals `1` _(7.4 only)_
+* Node version is configurable with `NODE_VERSION` argument (`12`, `14` etc.) _(7.4 only)_
+* PHP modules required by Magento are enabled by default (`iconv`, `intl`, `xsl`)
 
 # PHP for Docker CI
 
