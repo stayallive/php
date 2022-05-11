@@ -14,7 +14,7 @@ _This repository started as a fork of [TetraWeb/docker](https://github.com/Tetra
 
 ## Supported PHP versions
 
-Images are hosted on [Docker Hub](https://hub.docker.com/r/stayallive/php) as `stayallive/php` and tagged by PHP version.
+Images are hosted on [Docker Hub](https://hub.docker.com/r/stayallive/php) as `stayallive/php` tagged by PHP version and available for `linux/amd64` & `linux/arm64`.
 
 - [`stayallive/php:8.1` (*8.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1.Dockerfile)
 - [`stayallive/php:8.0` (*8.0.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.0.Dockerfile)
