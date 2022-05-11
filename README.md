@@ -12,9 +12,17 @@ These images are built from [official PHP Docker images](https://registry.hub.do
 
 _This repository started as a fork of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks to them for the initial work._
 
-## Supported PHP versions
+## Image Registries
 
-Images are hosted on [Docker Hub](https://hub.docker.com/r/stayallive/php) as `stayallive/php` tagged by PHP version and available for `linux/amd64` & `linux/arm64`.
+Images are available on the following registries:
+
+- [GitHub Container Registry](https://github.com/stayallive/php-docker/pkgs/container/php) (pull using `ghcr.io/stayallive/php:8.1`)
+- [GitLab Container Registry](https://gitlab.com/stayallive/php/container_registry/3036570) (pull using `registry.gitlab.com/stayallive/php:8.1`)
+- [Docker Hub](https://hub.docker.com/r/stayallive/php) (pull using `stayallive/php:8.1`)
+
+They are listed as `stayallive/php` and tagged by PHP version for both `linux/amd64` & `linux/arm64`.
+
+## Supported PHP versions
 
 - [`stayallive/php:8.1` (*8.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1.Dockerfile)
 - [`stayallive/php:8.0` (*8.0.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.0.Dockerfile)
@@ -24,7 +32,7 @@ Images are hosted on [Docker Hub](https://hub.docker.com/r/stayallive/php) as `s
 - [`stayallive/php:7.1` (*7.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.1.Dockerfile)
 - [`stayallive/php:7.0` (*7.0.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.0.Dockerfile)
 
-Keep in mind that although there is a image for the version that doesn't mean it's supported by PHP, see [supported PHP versions](https://www.php.net/supported-versions.php) for more information.
+_Keep in mind that although there might be a tag available it doesn't mean it's supported, see [supported PHP versions](https://www.php.net/supported-versions.php) for more information._
 
 ## Available extensions
 
@@ -118,7 +126,7 @@ before_script:
 <details>
 <summary>Available PECL extensions</summary>
 
-- igbinary 
+- igbinary
 - imagick
 - mongodb
 - redis
