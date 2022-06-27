@@ -57,6 +57,7 @@ jobs:
         uses: depot/build-push-action@v1
         with:
           push: true
+          file: ${{ matrix.version }}.Dockerfile
           tags: |
             stayallive/php:${{ matrix.version }}
             ghcr.io/stayallive/php:${{ matrix.version }}
