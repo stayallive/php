@@ -111,7 +111,7 @@ RUN additionalPackages=" \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $additionalPackages $buildDeps $runDeps \
     && docker-php-source extract \
     && cd /usr/src/php/ext/ \
-    && curl -L http://xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz | tar -zxf - \
+    && curl -L https://xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz | tar -zxf - \
     && mv xdebug-$XDEBUG_VERSION xdebug \
     && ln -s /usr/include/*-linux-gnu/gmp.h /usr/include/gmp.h \
     && ln -s /usr/lib/*-linux-gnu/libldap_r.so /usr/lib/libldap.so \
