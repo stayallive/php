@@ -62,6 +62,6 @@ jobs:
             ghcr.io/stayallive/php:${{ matrix.version }}
             registry.gitlab.com/stayallive/php:${{ matrix.version }}
           context: .
-          platform: |
+          platforms: |
             linux/amd64
             linux/arm64
