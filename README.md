@@ -24,6 +24,7 @@ They are listed as `stayallive/php` and tagged by PHP version for both `linux/am
 
 ## Supported PHP versions
 
+- [`stayallive/php:8.2` (*8.2.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.2.Dockerfile)
 - [`stayallive/php:8.1` (*8.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1.Dockerfile)
 - [`stayallive/php:8.0` (*8.0.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.0.Dockerfile)
 - [`stayallive/php:7.4` (*7.4.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.4.Dockerfile)
@@ -130,7 +131,7 @@ before_script:
 - imagick
 - mongodb
 - redis
-- xdebug
+- xdebug (not available for PHP 8.2 yet)
 
 </details>
 
@@ -139,6 +140,8 @@ before_script:
 ### `WITH_XDEBUG=1`
 
 Enables xdebug extension (disabled by default)
+
+_Note: Not available for PHP 8.2 yet._
 
 ### `TIMEZONE=Europe/Amsterdam`
 
