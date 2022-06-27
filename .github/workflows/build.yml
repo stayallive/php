@@ -13,8 +13,9 @@ on:
 jobs:
   docker:
     permissions:
-      packages: write
       contents: read
+      packages: write
+      id-token: write
 
     strategy:
       matrix:
@@ -53,13 +54,14 @@ jobs:
           password: ${{ secrets.GITLAB_PASSWORD }}
 
       - name: Run docker build
-        run: |
-          depot build --platform linux/amd64,linux/arm64 \
-            --file ${{ matrix.version }}.Dockerfile \
-            --tag stayallive/php:${{ matrix.version }} \
-            --tag ghcr.io/stayallive/php:${{ matrix.version }} \
-            --tag registry.gitlab.com/stayallive/php:${{ matrix.version }} \
-            --push \
-            .
-        env:
-          DEPOT_TOKEN: ${{ secrets.DEPOT_TOKEN }}
+        uses: depot/build-push-action@v1
+        with:
+          push: true
+          tags: |
+            stayallive/php:${{ matrix.version }}
+            ghcr.io/stayallive/php:${{ matrix.version }}
+            registry.gitlab.com/stayallive/php:${{ matrix.version }}
+          context: .
+          platform: |
+            linux/amd64
+            linux/arm64
