@@ -22,6 +22,8 @@ Images are available on the following registries:
 
 They are listed as `stayallive/php` and tagged by PHP version for both `linux/amd64` & `linux/arm64`.
 
+[![Built with Depot](https://depot.dev/badges/built-with-depot.svg)](https://depot.dev/?utm_source=stayallive)
+
 ## Supported PHP versions
 
 - [`stayallive/php:8.2` (*8.2.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.2.Dockerfile)
