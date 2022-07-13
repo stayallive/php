@@ -4,19 +4,21 @@ PHP Docker images for continuous integration and running tests. These images wer
 
 These images are built from [official PHP Docker images](https://registry.hub.docker.com/_/php/), and additionally include:
 
+_This repository started as a fork of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks to them for the initial work._
+
+## Features
+
 - [Most extensions](#available-extensions) are compiled and ready for loading with `docker-php-ext-enable`
 - Git client from official debian repo
 - Latest binaries of Composer, PHPUnit and PHP Code Sniffer (`phpcs` and `phpcbf`)
 - Node.js v12 from official Node.js debian repositories
 - sendmail command via msmtp, configured as relay to localhost. Check `/etc/msmtprc` to setup relay server
 
-_This repository started as a fork of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks to them for the initial work._
-
 ## Image Registries
 
 Images are available on the following registries:
 
-- [GitHub Container Registry](https://github.com/stayallive/php-docker/pkgs/container/php) (pull using `ghcr.io/stayallive/php:8.1`)
+- [GitHub Container Registry](https://github.com/stayallive/php/pkgs/container/php) (pull using `ghcr.io/stayallive/php:8.1`)
 - [GitLab Container Registry](https://gitlab.com/stayallive/php/container_registry/3036570) (pull using `registry.gitlab.com/stayallive/php:8.1`)
 - [Docker Hub](https://hub.docker.com/r/stayallive/php) (pull using `stayallive/php:8.1`)
 
