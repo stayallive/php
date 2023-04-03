@@ -1,5 +1,7 @@
 FROM php:8.2
 
+ENV XDEBUG_VERSION 3.2.1
+
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 # https://getcomposer.org/doc/03-cli.md#composer-no-interaction
@@ -93,6 +95,7 @@ RUN additionalPackages=" \
         tidy \
         xsl \
         zip \
+        xdebug \
     " \
     && peclModules=" \
         igbinary \
@@ -106,6 +109,8 @@ RUN additionalPackages=" \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $additionalPackages $buildDeps $runDeps \
     && docker-php-source extract \
     && cd /usr/src/php/ext/ \
+    && curl -L https://xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz | tar -zxf - \
+    && mv xdebug-$XDEBUG_VERSION xdebug \
     && ln -s /usr/include/*-linux-gnu/gmp.h /usr/include/gmp.h \
     && ln -s /usr/lib/*-linux-gnu/libldap_r.so /usr/lib/libldap.so \
     && ln -s /usr/lib/*-linux-gnu/libldap_r.a /usr/lib/libldap_r.a \
