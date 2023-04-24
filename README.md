@@ -18,9 +18,9 @@ _This repository started as a fork of [TetraWeb/docker](https://github.com/Tetra
 
 Images are available on the following registries:
 
-- [GitHub Container Registry](https://github.com/stayallive/php/pkgs/container/php) (pull using `ghcr.io/stayallive/php:8.1`)
-- [GitLab Container Registry](https://gitlab.com/stayallive/php/container_registry/3036570) (pull using `registry.gitlab.com/stayallive/php:8.1`)
-- [Docker Hub](https://hub.docker.com/r/stayallive/php) (pull using `stayallive/php:8.1`)
+- [GitHub Container Registry](https://github.com/stayallive/php/pkgs/container/php) (pull using `ghcr.io/stayallive/php:8.2`)
+- [GitLab Container Registry](https://gitlab.com/stayallive/php/container_registry/3036570) (pull using `registry.gitlab.com/stayallive/php:8.2`)
+- [Docker Hub](https://hub.docker.com/r/stayallive/php) (pull using `stayallive/php:8.2`)
 
 They are listed as `stayallive/php` and tagged by PHP version for both `linux/amd64` & `linux/arm64`.
 
@@ -31,11 +31,11 @@ They are listed as `stayallive/php` and tagged by PHP version for both `linux/am
 - [`stayallive/php:8.2` (*8.2.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.2.Dockerfile) (Node 14)
 - [`stayallive/php:8.1` (*8.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1.Dockerfile) (Node 14)
 - [`stayallive/php:8.0` (*8.0.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.0.Dockerfile) (Node 14)
-- [`stayallive/php:7.4` (*7.4.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.4.Dockerfile) (Node 14)
-- [`stayallive/php:7.3` (*7.3.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.3.Dockerfile) (Node 12)
-- [`stayallive/php:7.2` (*7.2.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.2.Dockerfile) (Node 12)
-- [`stayallive/php:7.1` (*7.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.1.Dockerfile) (Node 12)
-- [`stayallive/php:7.0` (*7.0.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.0.Dockerfile) (Node 12)
+- [`stayallive/php:7.4` (*7.4.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.4.Dockerfile) (Node 14, no longer being built)
+- [`stayallive/php:7.3` (*7.3.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.3.Dockerfile) (Node 12, no longer being built)
+- [`stayallive/php:7.2` (*7.2.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.2.Dockerfile) (Node 12, no longer being built)
+- [`stayallive/php:7.1` (*7.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.1.Dockerfile) (Node 12, no longer being built)
+- [`stayallive/php:7.0` (*7.0.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/7.0.Dockerfile) (Node 12, no longer being built)
 
 _Keep in mind that although there might be a tag available it doesn't mean the PHP version is still supported, see [supported PHP versions](https://www.php.net/supported-versions.php) for more information._
 
