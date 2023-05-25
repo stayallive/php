@@ -98,6 +98,7 @@ RUN additionalPackages=" \
         xdebug \
     " \
     && peclModules=" \
+        amqp \
         igbinary \
         imagick \
         mongodb \

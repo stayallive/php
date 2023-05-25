@@ -131,6 +131,7 @@ before_script:
 <details>
 <summary>Available PECL extensions</summary>
 
+- amqp
 - igbinary
 - imagick
 - mongodb
