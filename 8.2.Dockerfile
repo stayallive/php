@@ -152,8 +152,8 @@ RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar \
 
 # Install Node.js & Yarn
 RUN curl -fsSL https://raw.githubusercontent.com/tj/n/master/bin/n | bash -s lts \
-    && n 14 \
-    && npm install -g n yarn
+    && npm install -g n && n 14 \
+    && npm install -g yarn
 
 COPY msmtprc /etc/
 COPY entrypoint.sh /entrypoint.sh
