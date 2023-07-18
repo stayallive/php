@@ -18,6 +18,7 @@ RUN additionalPackages=" \
         openssh-client \
         rsync \
         unzip \
+        locales \
     " \
     buildDeps=" \
         freetds-dev \
@@ -125,6 +126,7 @@ RUN additionalPackages=" \
            rm -f /usr/local/etc/php/conf.d/docker-php-ext-$ext.ini; \
        done \
     && pecl install $peclModules \
+    && locale-gen nl_NL nl_NL.UTF-8 \
     && docker-php-source delete \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false $buildDeps \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
