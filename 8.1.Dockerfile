@@ -126,10 +126,14 @@ RUN additionalPackages=" \
            rm -f /usr/local/etc/php/conf.d/docker-php-ext-$ext.ini; \
        done \
     && pecl install $peclModules \
-    && locale-gen nl_NL nl_NL.UTF-8 \
     && docker-php-source delete \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false $buildDeps \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Configure locales (make en_US and nl_NL available)
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    sed -i -e 's/# nl_NL.UTF-8 UTF-8/nl_NL.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales
 
 # Install composer and put binary into $PATH
 RUN curl -sS https://getcomposer.org/installer | php \
