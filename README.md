@@ -160,8 +160,6 @@ before_script:
 
 Enables xdebug extension (disabled by default)
 
-_Note: Not available for PHP 8.2 yet._
-
 ### `TIMEZONE=Europe/Amsterdam`
 
 Set system and `php.ini` timezone. You can also set timezone in .gitlab-ci.yml - check [Example](https://github.com/TetraWeb/docker/blob/master/examples/purephp/.gitlab-ci.yml)
