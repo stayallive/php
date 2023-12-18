@@ -11,16 +11,16 @@ _This repository started as a fork of [TetraWeb/docker](https://github.com/Tetra
 - [Most extensions](#available-extensions) are compiled and ready for loading with `docker-php-ext-enable`
 - Git client from official debian repo
 - Latest binaries of Composer, PHPUnit and PHP Code Sniffer (`phpcs` and `phpcbf`)
-- Node.js v12 or v14 using the [`n`](https://github.com/tj/n) Node version manager, with `npm`, `yarn` and `n` pre-installed
+- Node.js v12, v14 or v20 by default using the [`n`](https://github.com/tj/n) Node version manager, with `npm`, `yarn` and `n` pre-installed
 - sendmail command via msmtp, configured as relay to localhost. Check `/etc/msmtprc` to setup relay server
 
 ## Image Registries
 
 Images are available on the following registries:
 
-- [GitHub Container Registry](https://github.com/stayallive/php/pkgs/container/php) (pull using `ghcr.io/stayallive/php:8.2`)
-- [GitLab Container Registry](https://gitlab.com/stayallive/php/container_registry/3036570) (pull using `registry.gitlab.com/stayallive/php:8.2`)
-- [Docker Hub](https://hub.docker.com/r/stayallive/php) (pull using `stayallive/php:8.2`)
+- [GitHub Container Registry](https://github.com/stayallive/php/pkgs/container/php) (pull using `ghcr.io/stayallive/php:8.3`)
+- [GitLab Container Registry](https://gitlab.com/stayallive/php/container_registry/3036570) (pull using `registry.gitlab.com/stayallive/php:8.3`)
+- [Docker Hub](https://hub.docker.com/r/stayallive/php) (pull using `stayallive/php:8.3`)
 
 They are listed as `stayallive/php` and tagged by PHP version for both `linux/amd64` & `linux/arm64`.
 
@@ -28,6 +28,7 @@ They are listed as `stayallive/php` and tagged by PHP version for both `linux/am
 
 ## PHP versions
 
+- [`stayallive/php:8.3` (*8.3.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.3.Dockerfile) (Node 20 & LTS)
 - [`stayallive/php:8.2` (*8.2.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.2.Dockerfile) (Node 14 & LTS)
 - [`stayallive/php:8.1` (*8.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1.Dockerfile) (Node 14 & LTS)
 - [`stayallive/php:8.0` (*8.0.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.0.Dockerfile) (Node 14 & LTS)
@@ -43,7 +44,7 @@ _Keep in mind that although there might be a tag available it doesn't mean the P
 
 Starting with the PHP 8 images the [`n`](https://github.com/tj/n) Node version manager is installed.
 
-Pre-cached is Node `14` and `LTS` with `14` set as the default. To use the `LTS` version run `n lts` in for example your `.gitlab-ci.yml` `before_script` section:
+Pre-cached is Node `14`/`20` and `LTS` with `14`/`20` set as the default (see PHP versions list which Node version is the default). To use the `LTS` version run `n lts` in for example your `.gitlab-ci.yml` `before_script` section:
 
 ```yaml
 before_script:
