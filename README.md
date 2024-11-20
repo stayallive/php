@@ -18,9 +18,9 @@ _This repository started as a fork of [TetraWeb/docker](https://github.com/Tetra
 
 Images are available on the following registries:
 
-- [GitHub Container Registry](https://github.com/stayallive/php/pkgs/container/php) (pull using `ghcr.io/stayallive/php:8.3`)
-- [GitLab Container Registry](https://gitlab.com/stayallive/php/container_registry/3036570) (pull using `registry.gitlab.com/stayallive/php:8.3`)
-- [Docker Hub](https://hub.docker.com/r/stayallive/php) (pull using `stayallive/php:8.3`)
+- [GitHub Container Registry](https://github.com/stayallive/php/pkgs/container/php) (pull using `ghcr.io/stayallive/php:8.4`)
+- [GitLab Container Registry](https://gitlab.com/stayallive/php/container_registry/3036570) (pull using `registry.gitlab.com/stayallive/php:8.4`)
+- [Docker Hub](https://hub.docker.com/r/stayallive/php) (pull using `stayallive/php:8.4`)
 
 They are listed as `stayallive/php` and tagged by PHP version for both `linux/amd64` & `linux/arm64`.
 
@@ -28,6 +28,7 @@ They are listed as `stayallive/php` and tagged by PHP version for both `linux/am
 
 ## PHP versions
 
+- [`stayallive/php:8.4` (*8.4.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.4.Dockerfile) (Node 20 & LTS)
 - [`stayallive/php:8.3` (*8.3.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.3.Dockerfile) (Node 20 & LTS)
 - [`stayallive/php:8.2` (*8.2.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.2.Dockerfile) (Node 14 & LTS)
 - [`stayallive/php:8.1` (*8.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1.Dockerfile) (Node 14 & LTS)
