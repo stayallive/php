@@ -28,7 +28,7 @@ They are listed as `stayallive/php` and tagged by PHP version for both `linux/am
 
 ## PHP versions
 
-- [`stayallive/php:8.4` (*8.4.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.4.Dockerfile) (Node 20 & LTS)
+- [`stayallive/php:8.4` (*8.4.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.4.Dockerfile) (Node LTS)
 - [`stayallive/php:8.3` (*8.3.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.3.Dockerfile) (Node 20 & LTS)
 - [`stayallive/php:8.2` (*8.2.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.2.Dockerfile) (Node 14 & LTS)
 - [`stayallive/php:8.1` (*8.1.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.1.Dockerfile) (Node 14 & LTS)
@@ -52,13 +52,21 @@ before_script:
   - n lts
 ```
 
+Note: Starting with PHP 8.4 only the LTS version of Node is pre-cached.
+
 You can use `n` to install any other Node version you need, but they will be downloaded each run and will not be pre-cached inside the image.
 
 ## Available extensions
 
 Some extensions are enabled by default (compiled-in) and some you have to enable when needed.
 
-Enable the extensions below by calling `docker-php-ext-enable` in for example your `.gitlab-ci.yml` `before_script` section:
+You can enable extensions by adding the environment variable `WITH_EXTENSIONS` with a space separated list of extensions you want to enable.
+
+```bash
+WITH_EXTENSIONS=imagick redis
+```
+
+Alternatively you can enable the extensions by calling `docker-php-ext-enable` in for example your `.gitlab-ci.yml` `before_script` section:
 
 ```yaml
 before_script:
@@ -202,6 +210,10 @@ before_script:
 ### `WITH_XDEBUG=1`
 
 Enables xdebug extension (disabled by default)
+
+### `WITH_EXTENSIONS=imagick redis`
+
+Enable extensions, separated by space
 
 ### `TIMEZONE=Europe/Amsterdam`
 
