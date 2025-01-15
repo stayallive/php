@@ -15,10 +15,12 @@ $blacklist = [
     'oci8',           // This one seems to cause build issues
     'opencensus',     // This one seems to cause build issues
     'parallel',       // Requires ZTS build
+    'phpy',           // This one seems to cause build issues
     'pdo_oci',        // This one seems to cause build issues
     'relay',          // This one seems to cause build issues
     'snuffleupagus',  // This one seems to cause build issues
     'swoole',         // Conflicts with openswoole which is preferred
+    'uopz',           // This one seems to cause build issues
     'xdiff',          // This one seems to cause build issues
 ];
 

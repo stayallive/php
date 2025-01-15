@@ -147,7 +147,6 @@ before_script:
 - pdo_sqlsrv
 - pgsql
 - php_trie
-- phpy
 - pkcs11
 - pq
 - protobuf
