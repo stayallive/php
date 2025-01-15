@@ -114,7 +114,6 @@ before_script:
 - imap
 - inotify
 - intl
-- ion
 - json_post
 - jsonpath
 - ldap

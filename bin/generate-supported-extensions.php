@@ -7,14 +7,17 @@ $supported = file_get_contents('https://github.com/mlocati/docker-php-extension-
 $version = $argv[1];
 
 $blacklist = [
-    'cassandra', // Not supported on debian images
-    'ddtrace',   // This one seems to cause package conflicts which results in failing the build
-    'gmagick',   // Conflicts with imagick which is preferred
-    'oci8',      // This one seems to cause build issues
-    'parallel',  // Requires ZTS build
-    'pdo_oci',   // This one seems to cause build issues
-    'relay',     // This one seems to cause build issues
-    'xdiff',     // This one seems to cause build issues
+    'cassandra',      // Not supported on debian images
+    'ddtrace',        // This one seems to cause package conflicts which results in failing the build
+    'gmagick',        // Conflicts with imagick which is preferred
+    'ion',            // This one seems to cause build issues
+    'ioncube_loader', // This one seems to cause build issues
+    'oci8',           // This one seems to cause build issues
+    'opencensus',     // This one seems to cause build issues
+    'parallel',       // Requires ZTS build
+    'pdo_oci',        // This one seems to cause build issues
+    'relay',          // This one seems to cause build issues
+    'xdiff',          // This one seems to cause build issues
 ];
 
 $supportedExtensions = implode(
