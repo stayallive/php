@@ -17,6 +17,7 @@ $blacklist = [
     'parallel',       // Requires ZTS build
     'pdo_oci',        // This one seems to cause build issues
     'relay',          // This one seems to cause build issues
+    'swoole',         // Conflicts with openswoole which is preferred
     'xdiff',          // This one seems to cause build issues
 ];
 

@@ -172,7 +172,6 @@ before_script:
 - sqlsrv
 - ssh2
 - stomp
-- swoole
 - sync
 - sysvmsg
 - sysvsem
