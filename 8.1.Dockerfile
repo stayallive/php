@@ -1,6 +1,6 @@
 FROM php:8.1
 
-ENV XDEBUG_VERSION 3.1.5
+ENV XDEBUG_VERSION 3.4.1
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
