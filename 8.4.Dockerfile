@@ -1,12 +1,11 @@
 FROM php:8.4
 
-ENV XDEBUG_VERSION 3.4.1
-
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 # https://getcomposer.org/doc/03-cli.md#composer-no-interaction
 ENV COMPOSER_NO_INTERACTION=1
 
+# Install additional packages
 RUN additionalPackages=" \
         apt-transport-https \
         git \
@@ -20,112 +19,18 @@ RUN additionalPackages=" \
         unzip \
         locales \
     " \
-    buildDeps=" \
-        freetds-dev \
-        libbz2-dev \
-        libc-client-dev \
-        libffi-dev \
-        libfreetype6-dev \
-        libgmp3-dev \
-        libicu-dev \
-        libjpeg62-turbo-dev \
-        libmagickwand-dev \
-        libkrb5-dev \
-        libldap2-dev \
-        libmcrypt-dev \
-        libpng-dev \
-        libpq-dev \
-        libpspell-dev \
-        libonig-dev \
-        librabbitmq-dev \
-        libsasl2-dev \
-        libsnmp-dev \
-        libssl-dev \
-        libtidy-dev \
-        libxml2-dev \
-        libxpm-dev \
-        libxslt1-dev \
-        zlib1g-dev \
-        libzip-dev \
-    " \
-    && runDeps=" \
-        imagemagick \
-        libc-client2007e \
-        libfreetype6 \
-        libicu-dev \
-        libjpeg62-turbo \
-        libpq5 \
-        libsybdb5 \
-        libtidy-dev \
-        libx11-dev \
-        libxpm4 \
-        libxslt1.1 \
-        libzip4 \
-        snmp \
-    " \
-    && phpModules=" \
-        bcmath \
-        bz2 \
-        calendar \
-        dba \
-        exif \
-        ffi \
-        ftp \
-        gd \
-        gettext \
-        gmp \
-        intl \
-        ldap \
-        mysqli \
-        opcache \
-        pcntl \
-        pdo \
-        pdo_dblib \
-        pdo_mysql \
-        pdo_pgsql \
-        pgsql \
-        shmop \
-        snmp \
-        soap \
-        sockets \
-        sysvmsg \
-        sysvsem \
-        sysvshm \
-        tidy \
-        xsl \
-        zip \
-        xdebug \
-    " \
-    && peclModules=" \
-        amqp \
-        igbinary \
-        imagick \
-        mongodb \
-        redis \
-    " \
     && echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup \
     && echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache \
     && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $additionalPackages $buildDeps $runDeps \
-    && docker-php-source extract \
-    && cd /usr/src/php/ext/ \
-    && curl -L https://xdebug.org/files/xdebug-$XDEBUG_VERSION.tgz | tar -zxf - \
-    && mv xdebug-$XDEBUG_VERSION xdebug \
-    && ln -s /usr/include/*-linux-gnu/gmp.h /usr/include/gmp.h \
-    && ln -s /usr/lib/*-linux-gnu/libldap_r.so /usr/lib/libldap.so \
-    && ln -s /usr/lib/*-linux-gnu/libldap_r.a /usr/lib/libldap_r.a \
-    && ln -s /usr/lib/*-linux-gnu/libsybdb.a /usr/lib/libsybdb.a \
-    && ln -s /usr/lib/*-linux-gnu/libsybdb.so /usr/lib/libsybdb.so \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-configure ldap --with-ldap-sasl \
-    && docker-php-ext-install $phpModules \
-    && for ext in $phpModules; do \
-           rm -f /usr/local/etc/php/conf.d/docker-php-ext-$ext.ini; \
-       done \
-    && pecl install $peclModules \
-    && docker-php-source delete \
-    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false $buildDeps \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $additionalPackages \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Install PHP extensions
+RUN extensions="amqp apcu ast bcmath bitset brotli bz2 calendar csv dba decimal ds enchant ev event excimer exif ffi ftp gd gearman geos geospatial gettext gmp gnupg grpc http igbinary imagick imap inotify intl ion json_post jsonpath ldap luasandbox lz4 lzf mailparse maxminddb md4c memcache memcached memprof mongodb msgpack mysqli oauth odbc opcache opentelemetry parle pcntl pcov pdo_dblib pdo_firebird pdo_mysql pdo_odbc pdo_pgsql pdo_sqlsrv pgsql php_trie phpy pkcs11 pq protobuf pspell psr raphf rdkafka redis saxon seasclick shmop simdjson smbclient snappy snmp snuffleupagus soap sockets solr spx sqlsrv ssh2 stomp swoole sync sysvmsg sysvsem sysvshm tideways tidy timezonedb uploadprogress uuid uv vips wikidiff2 xdebug xhprof xlswriter xmldiff xmlrpc xpass xsl yac yaml yar zephir_parser zip zmq zookeeper zstd" \
+    && curl -sSLf -o /usr/local/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions \
+    && chmod +x /usr/local/bin/install-php-extensions \
+    && install-php-extensions $extensions \
+    && for ext in $extensions; do rm -f /usr/local/etc/php/conf.d/*php-ext-$ext.ini; done
 
 # Configure locales (make en_US and nl_NL available)
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \

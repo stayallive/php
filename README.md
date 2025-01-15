@@ -2,7 +2,7 @@
 
 PHP Docker images for continuous integration and running tests. These images were created for using with Gitlab CI but should work on other platforms too.
 
-These images are built from [official PHP Docker images](https://registry.hub.docker.com/_/php/), and additionally include:
+These images are built with the [official PHP Docker images](https://registry.hub.docker.com/_/php/) as their base.
 
 _This repository started as a fork of [TetraWeb/docker](https://github.com/TetraWeb/docker), huge thanks to them for the initial work._
 
@@ -58,44 +58,6 @@ You can use `n` to install any other Node version you need, but they will be dow
 
 Some extensions are enabled by default (compiled-in) and some you have to enable when needed.
 
-<details>
-<summary>List of compiled-in extensions (enabled by default)</summary>
-
-- ctype
-- curl
-- date
-- dom
-- fileinfo
-- filter
-- ftp
-- hash
-- iconv
-- json
-- libxml
-- mbstring
-- mysqlnd
-- openssl
-- pcre
-- pdo
-- pdo_sqlite
-- phar
-- posix
-- readline
-- reflection
-- session
-- simplexml
-- sodium
-- spl
-- sqlite3
-- standard
-- tokenizer
-- xml
-- xmlreader
-- xmlwriter
-- zlib
-
-</details>
-
 Enable the extensions below by calling `docker-php-ext-enable` in for example your `.gitlab-ci.yml` `before_script` section:
 
 ```yaml
@@ -108,50 +70,130 @@ before_script:
 <details>
 <summary>Available extensions</summary>
 
+- amqp
+- apcu
+- ast
 - bcmath
+- bitset
+- brotli
 - bz2
 - calendar
+- cassandra
+- csv
 - dba
+- ddtrace
+- decimal
+- ds
+- enchant
+- ev
+- event
+- excimer
 - exif
 - ffi
 - ftp
 - gd
+- gearman
+- geos
+- geospatial
 - gettext
+- gmagick
 - gmp
+- gnupg
+- grpc
+- http
+- igbinary
+- imagick
 - imap
+- inotify
 - intl
+- ion
+- json_post
+- jsonpath
 - ldap
+- luasandbox
+- lz4
+- lzf
+- mailparse
+- maxminddb
+- md4c
+- memcache
+- memcached
+- memprof
+- mongodb
+- msgpack
 - mysqli
+- oauth
+- oci8
+- odbc
 - opcache
+- opentelemetry
+- parallel
+- parle
 - pcntl
-- pdo
+- pcov
 - pdo_dblib
+- pdo_firebird
 - pdo_mysql
+- pdo_oci
+- pdo_odbc
 - pdo_pgsql
+- pdo_sqlsrv
 - pgsql
+- php_trie
+- phpy
+- pkcs11
+- pq
+- protobuf
 - pspell
+- psr
+- raphf
+- rdkafka
+- redis
+- relay
+- saxon
+- seasclick
 - shmop
+- simdjson
+- smbclient
+- snappy
 - snmp
+- snuffleupagus
 - soap
 - sockets
+- solr
+- spx
+- sqlsrv
+- ssh2
+- stomp
+- swoole
+- sync
 - sysvmsg
 - sysvsem
 - sysvshm
+- tideways
 - tidy
+- timezonedb
+- uploadprogress
+- uuid
+- uv
+- vips
+- wikidiff2
+- xdebug
+- xdiff
+- xhprof
+- xlswriter
+- xmldiff
+- xmlrpc
+- xpass
 - xsl
+- yac
+- yaml
+- yar
+- zephir_parser
 - zip
-
-</details>
-
-<details>
-<summary>Available PECL extensions</summary>
-
-- amqp
-- igbinary
-- imagick
-- mongodb
-- redis
-- xdebug (not available for PHP 8.2 yet)
+- zmq
+- zookeeper
+- zstd
 
 </details>
 
