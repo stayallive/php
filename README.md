@@ -164,7 +164,6 @@ before_script:
 - smbclient
 - snappy
 - snmp
-- snuffleupagus
 - soap
 - sockets
 - solr
