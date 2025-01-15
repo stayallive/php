@@ -24,4 +24,9 @@ if [[ ! -z "$WITH_XDEBUG" ]]; then
   docker-php-ext-enable xdebug
 fi
 
+# Enable extensions when requested
+if [[ ! -z "$WITH_EXTENSIONS" ]]; then
+  docker-php-ext-enable $WITH_EXTENSIONS
+fi
+
 exec "$@"
