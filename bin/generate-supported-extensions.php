@@ -9,6 +9,8 @@ $version = $argv[1];
 $blacklist = [
     'cassandra',      // Not supported on debian images
     'ddtrace',        // This one seems to cause package conflicts which results in failing the build
+    'geos',           // This one seems to cause build issues
+    'geospatial',     // This one seems to cause build issues
     'gmagick',        // Conflicts with imagick which is preferred
     'ion',            // This one seems to cause build issues
     'ioncube_loader', // This one seems to cause build issues

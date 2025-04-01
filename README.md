@@ -101,8 +101,6 @@ before_script:
 - ftp
 - gd
 - gearman
-- geos
-- geospatial
 - gettext
 - gmagick
 - gmp
