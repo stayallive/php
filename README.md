@@ -76,20 +76,20 @@ before_script:
 ```
 
 <details>
-<summary>Available extensions</summary>
+<summary>Available extensions (may differ slightly between versions)</summary>
 
+<!-- Generated with script/generate-extensions-list.php -->
 - amqp
 - apcu
 - ast
 - bcmath
 - bitset
+- blackfire
 - brotli
 - bz2
 - calendar
-- cassandra
 - csv
 - dba
-- ddtrace
 - decimal
 - ds
 - enchant
@@ -102,16 +102,15 @@ before_script:
 - gd
 - gearman
 - gettext
-- gmagick
 - gmp
 - gnupg
 - grpc
 - http
 - igbinary
 - imagick
-- imap
 - inotify
 - intl
+- ip2location
 - json_post
 - jsonpath
 - ldap
@@ -120,6 +119,7 @@ before_script:
 - lzf
 - mailparse
 - maxminddb
+- mcrypt
 - md4c
 - memcache
 - memcached
@@ -127,23 +127,24 @@ before_script:
 - mongodb
 - msgpack
 - mysqli
+- newrelic
+- nsq
 - oauth
-- oci8
 - odbc
 - opcache
+- openswoole
 - opentelemetry
-- parallel
+- operator
 - parle
 - pcntl
 - pcov
 - pdo_dblib
 - pdo_firebird
 - pdo_mysql
-- pdo_oci
 - pdo_odbc
 - pdo_pgsql
-- pdo_sqlsrv
 - pgsql
+- phalcon
 - php_trie
 - pkcs11
 - pq
@@ -151,9 +152,7 @@ before_script:
 - pspell
 - psr
 - raphf
-- rdkafka
 - redis
-- relay
 - saxon
 - seasclick
 - shmop
@@ -164,8 +163,8 @@ before_script:
 - soap
 - sockets
 - solr
+- sourceguardian
 - spx
-- sqlsrv
 - ssh2
 - stomp
 - sync
@@ -175,13 +174,15 @@ before_script:
 - tideways
 - tidy
 - timezonedb
+- translit
 - uploadprogress
 - uuid
 - uv
 - vips
+- vld
 - wikidiff2
+- xattr
 - xdebug
-- xdiff
 - xhprof
 - xlswriter
 - xmldiff
@@ -196,6 +197,7 @@ before_script:
 - zmq
 - zookeeper
 - zstd
+<!-- /Generated with script/generate-extensions-list.php -->
 
 </details>
 
