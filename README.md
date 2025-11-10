@@ -28,6 +28,7 @@ They are listed as `stayallive/php` and tagged by PHP version for both `linux/am
 
 ## PHP versions
 
+- [`stayallive/php:8.5` (*8.5.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.5.Dockerfile) (Node LTS)
 - [`stayallive/php:8.4` (*8.4.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.4.Dockerfile) (Node LTS)
 - [`stayallive/php:8.3` (*8.3.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.3.Dockerfile) (Node 20 & LTS)
 - [`stayallive/php:8.2` (*8.2.Dockerfile*)](https://github.com/stayallive/php-docker/blob/master/8.2.Dockerfile) (Node 14 & LTS)
