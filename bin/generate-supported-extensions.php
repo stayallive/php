@@ -5,6 +5,7 @@
 $blacklist = [
     'cassandra',      // Not supported on debian images
     'ddtrace',        // This one seems to cause package conflicts which results in failing the build
+    'ecma_intl',      // This one seems to cause build issues
     'geos',           // This one seems to cause build issues
     'geospatial',     // This one seems to cause build issues
     'gmagick',        // Conflicts with imagick which is preferred
