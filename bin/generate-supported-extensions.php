@@ -24,6 +24,7 @@ $blacklist = [
     'sqlsrv',         // This one seems to cause build issues
     'swoole',         // Conflicts with openswoole which is preferred
     'uopz',           // This one seems to cause build issues
+    'v8js',           // This one seems to cause build issues
     'xdiff',          // This one seems to cause build issues
 ];
 
