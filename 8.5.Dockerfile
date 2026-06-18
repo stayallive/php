@@ -1,4 +1,4 @@
-FROM php:8.5.0RC4
+FROM php:8.5
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -26,7 +26,7 @@ RUN additionalPackages=" \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install PHP extensions
-RUN extensions="apcu ast bcmath bitset brotli bz2 calendar csv dba decimal ds enchant ev event excimer exif ffi ftp gd gettext gmp gnupg http inotify intl ip2location json_post jsonpath ldap lz4 lzf mailparse maxminddb mcrypt md4c memcached memprof mongodb msgpack mysqli oauth odbc opcache opentelemetry operator pcntl pcov pdo_dblib pdo_firebird pdo_mysql pdo_odbc pdo_pgsql pgsql pkcs11 pq protobuf pspell psr raphf saxon seasclick shmop simdjson smbclient snappy snmp soap sockets spx ssh2 sysvmsg sysvsem sysvshm tidy timezonedb translit uploadprogress uuid uv vips vld wikidiff2 xattr xhprof xlswriter xmlrpc xpass xsl yac yaml yar zephir_parser zip zstd" \
+RUN extensions="amqp apcu ast bcmath bitset blackfire brotli bz2 calendar csv dba decimal ds enchant ev event excimer exif ffi ftp gd gearman gettext gmp gnupg grpc http igbinary imagick inotify intl ip2location json_post jsonpath judy ldap luasandbox lz4 lzf mailparse maxminddb mcrypt md4c memcached memprof mongodb msgpack mysqli oauth odbc opcache openswoole opentelemetry operator pcntl pcov pdo_dblib pdo_firebird pdo_mysql pdo_odbc pdo_pgsql pgsql phalcon pkcs11 pq protobuf pspell psr raphf redis saxon seasclick shmop simdjson smbclient snappy snmp soap sockets solr sourceguardian spx ssh2 statgrab sysvmsg sysvsem sysvshm tidy timezonedb translit uploadprogress uuid uv v8js vips vld wikidiff2 xattr xdebug xhprof xlswriter xmldiff xmlrpc xpass xsl yac yaml yar zephir_parser zip zookeeper zstd" \
     && curl -sSLf -o /usr/local/bin/install-php-extensions https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions \
     && chmod +x /usr/local/bin/install-php-extensions \
     && install-php-extensions $extensions \
