@@ -9,6 +9,7 @@ $supported = [
     '8.3',
     '8.4',
     '8.5',
+    '8.6',
 ];
 
 $readmeVersion = '8.4';
