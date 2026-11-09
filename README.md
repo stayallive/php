@@ -154,7 +154,6 @@ before_script:
 - psr
 - raphf
 - redis
-- saxon
 - seasclick
 - shmop
 - simdjson

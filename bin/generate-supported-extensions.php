@@ -20,6 +20,7 @@ $blacklist = [
     'pdo_sqlsrv',     // This one seems to cause build issues
     'rdkafka',        // This one seems to cause build issues
     'relay',          // This one seems to cause build issues
+    'saxon',          // Installer can no longer resolve the SaxonC download URL
     'snuffleupagus',  // This one seems to cause build issues
     'sqlsrv',         // This one seems to cause build issues
     'swoole',         // Conflicts with openswoole which is preferred
